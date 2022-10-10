@@ -6,7 +6,9 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "migrate-db": "npx prisma migrate dev",
+        "run-db-studio": "npx prisma studio"
     },
     "dependencies": {
         "@chakra-ui/layout": "^1.5.1",
@@ -47,5 +49,8 @@
         "prettier": "^2.7.1",
         "prisma": "^3.6.0",
         "ts-node": "^10.4.0"
+    },
+    "prisma": {
+        "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
     }
 }
