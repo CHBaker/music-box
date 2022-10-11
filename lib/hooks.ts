@@ -17,11 +17,11 @@ export const useMe = (): SWRResponse => {
     }
 }
 
-const usePlaylists = (): SWRResponse => {
+export const usePlaylist = (): SWRResponse => {
     const { data, error } = useSWR('/playlist', fetcher)
 
     return {
-        playlists: data || [],
+        playlists: (data as unknown as []) || [],
         isLoading: !data && !error,
         isError: error,
     }

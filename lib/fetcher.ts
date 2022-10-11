@@ -6,5 +6,12 @@ export default function fetcher(url: string, data = undefined) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-    })
+    }).then(
+        (res) => {
+            const status = res.status
+            if (status > 399 && status < 200) throw new Error()
+            return res.json()
+        },
+        (error) => console.error(error)
+    )
 }
