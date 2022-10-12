@@ -6,13 +6,15 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const salt = bcrypt.genSaltSync()
-    const { email, password } = req.body
+    const { email, password, firstName, lastName } = req.body
 
     let user
 
     try {
         user = await prisma.user.create({
             data: {
+                firstName,
+                lastName,
                 email,
                 password: bcrypt.hashSync(password, salt),
             },
