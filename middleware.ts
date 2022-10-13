@@ -18,7 +18,7 @@ export default function middleware(req) {
         const token = req?.cookie?.MUSIC_B0X_ACCESS_TOKEN
 
         if (!token) {
-            return redirect(req)
+            redirect(req)
         }
     }
 }
