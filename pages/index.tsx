@@ -51,12 +51,12 @@ const Home = ({ artists }) => {
     )
 }
 
-export const getServerSideProps = async () => {
-    const artists = await prisma.artist.findMany({})
+// export const getServerSideProps = async () => {
+//     const artists = await prisma.artist.findMany({})
 
-    return {
-        props: { artists },
-    }
-}
+//     return {
+//         props: { artists },
+//     }
+// }
 
 export default Home
