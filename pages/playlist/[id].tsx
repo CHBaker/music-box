@@ -37,6 +37,7 @@ const Playlist = ({ playlist }) => {
 
 export const getServerSideProps = async ({ query, req }) => {
     let user
+    console.log('attempting to validate token')
 
     try {
         user = validateToken(req.cookies.MUSIC_B0X_ACCESS_TOKEN)
@@ -49,6 +50,7 @@ export const getServerSideProps = async ({ query, req }) => {
         }
     }
 
+    console.log('user validated', user)
     const playlist = await prisma.playlist.findFirst({
         where: {
             id: +query.id,
@@ -67,6 +69,8 @@ export const getServerSideProps = async ({ query, req }) => {
             },
         },
     })
+
+    console.log('pLAYLIST', playlist)
 
     return {
         props: { playlist },
