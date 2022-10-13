@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import { validateToken } from './auth'
 import fetcher from './fetcher'
 
 interface SWRResponse {
